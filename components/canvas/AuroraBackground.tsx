@@ -26,86 +26,51 @@ export const AuroraBackground: React.FC = () => {
     };
     window.addEventListener("resize", handleResize);
 
-    // Aurora Blob Configs
-    const blobCount = isMobile ? 3 : 5;
-    const blobs = Array.from({ length: blobCount }, (_, i) => {
-      const colors = [
-        "rgba(0, 114, 255, ",  // Electric Blue
-        "rgba(112, 0, 255, ",  // Neon Purple
-        "rgba(0, 242, 254, ",  // Cyan
-        "rgba(0, 245, 160, ",  // Emerald
-        "rgba(255, 0, 127, ",  // Magenta
-      ];
-      return {
-        x: Math.random() * width,
-        y: Math.random() * height,
-        radius: (Math.random() * 250 + 250) * (isMobile ? 0.7 : 1.0),
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        colorBase: colors[i % colors.length],
-        alpha: Math.random() * 0.35 + 0.25,
-        phase: Math.random() * Math.PI * 2,
-      };
-    });
-
     let time = 0;
 
     const render = () => {
-      time += 0.01;
+      time += 0.005;
       ctx.clearRect(0, 0, width, height);
 
-      // Deep dark futuristic background base
-      ctx.fillStyle = "#030712";
+      // Premium Dark Obsidian Base (Linear/Vercel Theme)
+      ctx.fillStyle = "#090d16";
       ctx.fillRect(0, 0, width, height);
 
-      // Additive / Screen blending for luminous aurora
+      // Subtle, elegant ambient glows
+      const glows = [
+        {
+          x: width * 0.5 + Math.sin(time) * 40,
+          y: height * 0.25 + Math.cos(time * 0.8) * 30,
+          r: 500,
+          color: "rgba(56, 189, 248, 0.12)", // Soft Cyan
+        },
+        {
+          x: width * 0.3 + Math.cos(time * 0.7) * 50,
+          y: height * 0.5 + Math.sin(time * 0.9) * 40,
+          r: 600,
+          color: "rgba(99, 102, 241, 0.12)", // Soft Indigo
+        },
+        {
+          x: width * 0.7 + Math.sin(time * 0.6) * 40,
+          y: height * 0.75 + Math.cos(time * 0.7) * 30,
+          r: 550,
+          color: "rgba(168, 85, 247, 0.08)", // Soft Violet
+        },
+      ];
+
       ctx.globalCompositeOperation = "lighter";
 
-      blobs.forEach((blob, idx) => {
-        // Move blobs with subtle sine oscillation
-        blob.phase += 0.005;
-        const targetX = blob.x + Math.sin(blob.phase + idx) * 0.8;
-        const targetY = blob.y + Math.cos(blob.phase * 0.8 + idx) * 0.8;
-
-        // Subtle mouse attraction for interactive lighting
-        const dx = (mouse.x - targetX) * 0.015;
-        const dy = (mouse.y - targetY) * 0.015;
-
-        const currentX = targetX + dx;
-        const currentY = targetY + dy;
-
-        const dynamicRadius =
-          blob.radius + Math.sin(time + idx * 2) * 35;
-
-        const gradient = ctx.createRadialGradient(
-          currentX,
-          currentY,
-          0,
-          currentX,
-          currentY,
-          dynamicRadius
-        );
-
-        gradient.addColorStop(0, `${blob.colorBase}${blob.alpha})`);
-        gradient.addColorStop(0.5, `${blob.colorBase}${blob.alpha * 0.5})`);
-        gradient.addColorStop(1, `${blob.colorBase}0)`);
-
-        ctx.fillStyle = gradient;
+      glows.forEach((g) => {
+        const grad = ctx.createRadialGradient(g.x, g.y, 0, g.x, g.y, g.r);
+        grad.addColorStop(0, g.color);
+        grad.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = grad;
         ctx.beginPath();
-        ctx.arc(currentX, currentY, dynamicRadius, 0, Math.PI * 2);
+        ctx.arc(g.x, g.y, g.r, 0, Math.PI * 2);
         ctx.fill();
-
-        // Bounce back inside boundaries
-        blob.x += blob.vx;
-        blob.y += blob.vy;
-        if (blob.x < -100 || blob.x > width + 100) blob.vx *= -1;
-        if (blob.y < -100 || blob.y > height + 100) blob.vy *= -1;
       });
 
-      // Reset composite mode for overlays
-      ctx.globalCompositeOperation = "source-over";
-
-      // Subtle mouse radial spotlight
+      // Mouse Spotlight Glow
       if (!isMobile && mouse.x > 0 && mouse.y > 0) {
         const spotGrad = ctx.createRadialGradient(
           mouse.x,
@@ -113,14 +78,16 @@ export const AuroraBackground: React.FC = () => {
           0,
           mouse.x,
           mouse.y,
-          400
+          350
         );
-        spotGrad.addColorStop(0, "rgba(0, 242, 254, 0.12)");
-        spotGrad.addColorStop(0.5, "rgba(112, 0, 255, 0.06)");
+        spotGrad.addColorStop(0, "rgba(56, 189, 248, 0.08)");
+        spotGrad.addColorStop(0.6, "rgba(99, 102, 241, 0.03)");
         spotGrad.addColorStop(1, "rgba(0, 0, 0, 0)");
         ctx.fillStyle = spotGrad;
         ctx.fillRect(0, 0, width, height);
       }
+
+      ctx.globalCompositeOperation = "source-over";
 
       animationFrameId = requestAnimationFrame(render);
     };
@@ -136,15 +103,10 @@ export const AuroraBackground: React.FC = () => {
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       <canvas ref={canvasRef} className="w-full h-full block" />
-      {/* Animated Cyber Grid Overlay */}
-      <div className="absolute inset-0 bg-cyber-grid bg-grid opacity-15 mix-blend-overlay" />
-      {/* Grain / Noise Texture overlay */}
-      <div
-        className="absolute inset-0 opacity-20 pointer-events-none mix-blend-soft-light"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-        }}
-      />
+      {/* Subtle Linear-style Grid Overlay */}
+      <div className="absolute inset-0 bg-cyber-grid bg-grid opacity-10" />
+      {/* Soft Vignette Overlay */}
+      <div className="absolute inset-0 bg-radial-vignette pointer-events-none" />
     </div>
   );
 };

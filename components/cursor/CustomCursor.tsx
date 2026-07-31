@@ -12,7 +12,7 @@ export const CustomCursor: React.FC = () => {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springConfig = { damping: 25, stiffness: 400 };
+  const springConfig = { damping: 28, stiffness: 380 };
   const smoothX = useSpring(cursorX, springConfig);
   const smoothY = useSpring(cursorY, springConfig);
 
@@ -53,9 +53,9 @@ export const CustomCursor: React.FC = () => {
 
   return (
     <>
-      {/* Outer Glow Ring */}
+      {/* Outer Sleek Ring */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full mix-blend-screen"
+        className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full"
         style={{
           x: smoothX,
           y: smoothY,
@@ -63,30 +63,30 @@ export const CustomCursor: React.FC = () => {
           translateY: "-50%",
         }}
         animate={{
-          width: isHovered ? 64 : 32,
-          height: isHovered ? 64 : 32,
+          width: isHovered ? 48 : 24,
+          height: isHovered ? 48 : 24,
           backgroundColor: isHovered
-            ? "rgba(0, 242, 254, 0.15)"
-            : "rgba(112, 0, 255, 0.2)",
+            ? "rgba(56, 189, 248, 0.08)"
+            : "rgba(255, 255, 255, 0.03)",
           border: isHovered
-            ? "1.5px solid rgba(0, 242, 254, 0.8)"
-            : "1px solid rgba(112, 0, 255, 0.5)",
+            ? "1px solid rgba(56, 189, 248, 0.6)"
+            : "1px solid rgba(255, 255, 255, 0.2)",
           boxShadow: isHovered
-            ? "0 0 25px rgba(0, 242, 254, 0.6), inset 0 0 15px rgba(112, 0, 255, 0.4)"
-            : "0 0 15px rgba(112, 0, 255, 0.3)",
+            ? "0 0 20px rgba(56, 189, 248, 0.25)"
+            : "0 0 10px rgba(255, 255, 255, 0.05)",
         }}
         transition={{ type: "spring", stiffness: 350, damping: 25 }}
       >
         {hoverText && (
-          <span className="absolute inset-0 flex items-center justify-center text-[10px] font-mono font-bold tracking-widest text-cyan-300 uppercase">
+          <span className="absolute inset-0 flex items-center justify-center text-[9px] font-mono font-semibold tracking-wider text-sky-300 uppercase">
             {hoverText}
           </span>
         )}
       </motion.div>
 
-      {/* Inner Dot Pointer */}
+      {/* Inner Dot */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[10000] w-2 h-2 bg-cyan-400 rounded-full shadow-[0_0_10px_#00F2FE]"
+        className="fixed top-0 left-0 pointer-events-none z-[10000] w-1.5 h-1.5 bg-sky-400 rounded-full"
         style={{
           x: cursorX,
           y: cursorY,

@@ -15,21 +15,13 @@ export const GlassCard: React.FC<GlassCardProps> = ({
   children,
   className = "",
   glowColor = "cyan",
-  tiltFactor = 15,
+  tiltFactor = 8,
   dataCursorText,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const [spotlightPos, setSpotlightPos] = useState({ x: 50, y: 50 });
-
-  const glowMap = {
-    blue: "group-hover:border-blue-500/50 group-hover:shadow-[0_0_30px_rgba(0,114,255,0.3)]",
-    purple: "group-hover:border-purple-500/50 group-hover:shadow-[0_0_30px_rgba(112,0,255,0.3)]",
-    cyan: "group-hover:border-cyan-500/50 group-hover:shadow-[0_0_30px_rgba(0,242,254,0.35)]",
-    emerald: "group-hover:border-emerald-500/50 group-hover:shadow-[0_0_30px_rgba(0,245,160,0.3)]",
-    magenta: "group-hover:border-pink-500/50 group-hover:shadow-[0_0_30px_rgba(255,0,127,0.3)]",
-  };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -63,16 +55,16 @@ export const GlassCard: React.FC<GlassCardProps> = ({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       animate={{ rotateX, rotateY }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      transition={{ type: "spring", stiffness: 280, damping: 22 }}
       style={{ transformStyle: "preserve-3d" }}
       data-cursor-text={dataCursorText}
-      className={`group relative rounded-2xl bg-slate-900/60 backdrop-blur-xl border border-white/10 transition-all duration-300 ${glowMap[glowColor]} ${className}`}
+      className={`group relative rounded-2xl bg-zinc-900/60 backdrop-blur-xl border border-zinc-800/80 hover:border-zinc-700/80 shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all duration-300 ${className}`}
     >
-      {/* Dynamic Cursor Spotlight Effect over Card */}
+      {/* Subtle Radial Cursor Spotlight */}
       <div
         className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
         style={{
-          background: `radial-gradient(600px circle at ${spotlightPos.x}% ${spotlightPos.y}%, rgba(255,255,255,0.08), transparent 40%)`,
+          background: `radial-gradient(450px circle at ${spotlightPos.x}% ${spotlightPos.y}%, rgba(255,255,255,0.06), transparent 40%)`,
         }}
       />
       <div className="relative z-20 h-full">{children}</div>

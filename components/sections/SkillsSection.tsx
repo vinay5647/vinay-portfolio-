@@ -32,31 +32,30 @@ import { SKILLS_DATA } from "@/lib/data";
 import { GlassCard } from "@/components/UI/GlassCard";
 import { SectionHeading } from "@/components/UI/SectionHeading";
 
-// Icon lookup map
 const ICON_MAP: Record<string, React.ReactNode> = {
-  Code: <Code className="w-5 h-5 text-cyan-400" />,
-  Cpu: <Cpu className="w-5 h-5 text-purple-400" />,
-  Terminal: <Terminal className="w-5 h-5 text-pink-400" />,
-  Layout: <Layout className="w-5 h-5 text-cyan-400" />,
-  Palette: <Palette className="w-5 h-5 text-purple-400" />,
-  Atom: <Atom className="w-5 h-5 text-cyan-300 animate-spin-slow" />,
-  Globe: <Globe className="w-5 h-5 text-blue-400" />,
-  Zap: <Zap className="w-5 h-5 text-amber-400" />,
-  Server: <Server className="w-5 h-5 text-purple-400" />,
-  Database: <Database className="w-5 h-5 text-cyan-400" />,
-  Layers: <Layers className="w-5 h-5 text-emerald-400" />,
-  Brain: <Brain className="w-5 h-5 text-cyan-400 animate-pulse" />,
-  MessageSquareText: <MessageSquareText className="w-5 h-5 text-purple-400" />,
-  Network: <Network className="w-5 h-5 text-pink-400" />,
-  BarChart: <BarChart className="w-5 h-5 text-emerald-400" />,
-  GitBranch: <GitBranch className="w-5 h-5 text-orange-400" />,
-  Github: <Github className="w-5 h-5 text-slate-200" />,
-  FileCode: <FileCode className="w-5 h-5 text-blue-400" />,
-  Smartphone: <Smartphone className="w-5 h-5 text-cyan-400" />,
-  Users: <Users className="w-5 h-5 text-purple-400" />,
-  MessageCircle: <MessageCircle className="w-5 h-5 text-pink-400" />,
-  Lightbulb: <Lightbulb className="w-5 h-5 text-amber-400" />,
-  HeartHandshake: <HeartHandshake className="w-5 h-5 text-emerald-400" />,
+  Code: <Code className="w-4 h-4 text-sky-400" />,
+  Cpu: <Cpu className="w-4 h-4 text-indigo-400" />,
+  Terminal: <Terminal className="w-4 h-4 text-violet-400" />,
+  Layout: <Layout className="w-4 h-4 text-sky-400" />,
+  Palette: <Palette className="w-4 h-4 text-indigo-400" />,
+  Atom: <Atom className="w-4 h-4 text-sky-300" />,
+  Globe: <Globe className="w-4 h-4 text-blue-400" />,
+  Zap: <Zap className="w-4 h-4 text-amber-400" />,
+  Server: <Server className="w-4 h-4 text-indigo-400" />,
+  Database: <Database className="w-4 h-4 text-sky-400" />,
+  Layers: <Layers className="w-4 h-4 text-emerald-400" />,
+  Brain: <Brain className="w-4 h-4 text-sky-400" />,
+  MessageSquareText: <MessageSquareText className="w-4 h-4 text-indigo-400" />,
+  Network: <Network className="w-4 h-4 text-violet-400" />,
+  BarChart: <BarChart className="w-4 h-4 text-emerald-400" />,
+  GitBranch: <GitBranch className="w-4 h-4 text-orange-400" />,
+  Github: <Github className="w-4 h-4 text-zinc-200" />,
+  FileCode: <FileCode className="w-4 h-4 text-blue-400" />,
+  Smartphone: <Smartphone className="w-4 h-4 text-sky-400" />,
+  Users: <Users className="w-4 h-4 text-indigo-400" />,
+  MessageCircle: <MessageCircle className="w-4 h-4 text-violet-400" />,
+  Lightbulb: <Lightbulb className="w-4 h-4 text-amber-400" />,
+  HeartHandshake: <HeartHandshake className="w-4 h-4 text-emerald-400" />,
 };
 
 export const SkillsSection: React.FC = () => {
@@ -75,10 +74,10 @@ export const SkillsSection: React.FC = () => {
         <SectionHeading
           badge="TECHNICAL MASTERY"
           title="Skills, Frameworks & Core Capabilities"
-          subtitle="A comprehensive overview of my technical stack across AI/ML, Python Backend, Web Technologies, and Software Engineering."
+          subtitle="Comprehensive technical stack across AI & Machine Learning, Python Backend, Databases, and Software Engineering."
         />
 
-        {/* Category Filter Pills */}
+        {/* Category Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
           {categories.map((cat) => (
             <button
@@ -86,8 +85,8 @@ export const SkillsSection: React.FC = () => {
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-2 rounded-xl text-xs font-mono tracking-wider transition-all duration-300 cursor-pointer ${
                 selectedCategory === cat
-                  ? "bg-gradient-to-r from-cyan-500 to-purple-600 text-white shadow-[0_0_20px_rgba(0,242,254,0.4)] font-bold scale-105"
-                  : "bg-slate-900/80 text-slate-400 border border-white/10 hover:border-cyan-500/40 hover:text-white"
+                  ? "bg-zinc-100 text-zinc-950 font-bold shadow-md scale-105"
+                  : "bg-zinc-900/80 text-zinc-400 border border-zinc-800 hover:border-zinc-700 hover:text-white"
               }`}
               data-magnetic="true"
             >
@@ -96,64 +95,52 @@ export const SkillsSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Grid of Skill Category Cards */}
+        {/* Grid of Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredData.map((section, idx) => (
             <motion.div
               key={section.category}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
             >
-              <GlassCard
-                glowColor={
-                  idx % 4 === 0
-                    ? "cyan"
-                    : idx % 4 === 1
-                    ? "purple"
-                    : idx % 4 === 2
-                    ? "emerald"
-                    : "magenta"
-                }
-                tiltFactor={8}
-                className="p-6 h-full flex flex-col justify-between"
-              >
+              <GlassCard tiltFactor={5} className="p-6 h-full flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between mb-6 pb-3 border-b border-white/10">
+                  <div className="flex items-center justify-between mb-6 pb-3 border-b border-zinc-800">
                     <h3 className="text-xl font-bold text-white tracking-wide">
                       {section.category}
                     </h3>
-                    <span className="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded-md border border-cyan-500/20">
+                    <span className="text-xs font-mono text-zinc-400 bg-zinc-950 px-2.5 py-1 rounded-md border border-zinc-800">
                       {section.items.length} Skills
                     </span>
                   </div>
 
-                  <div className="space-y-5">
+                  <div className="space-y-4">
                     {section.items.map((skill) => (
                       <div key={skill.name} className="space-y-1.5">
                         <div className="flex items-center justify-between text-sm">
                           <div className="flex items-center gap-2.5">
                             {ICON_MAP[skill.icon] || (
-                              <CheckCircle2 className="w-4 h-4 text-cyan-400" />
+                              <CheckCircle2 className="w-4 h-4 text-sky-400" />
                             )}
-                            <span className="font-semibold text-slate-200">
+                            <span className="font-semibold text-zinc-200">
                               {skill.name}
                             </span>
                           </div>
-                          <span className="text-xs font-mono text-cyan-300">
+                          <span className="text-xs font-mono text-zinc-400">
                             {skill.level}%
                           </span>
                         </div>
 
-                        {/* Animated Skill Level Bar */}
-                        <div className="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden p-0.5 border border-white/5">
+                        {/* Animated Level Bar */}
+                        <div className="w-full h-1.5 bg-zinc-950 rounded-full overflow-hidden p-0.5 border border-zinc-800">
                           <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${skill.level}%` }}
                             viewport={{ once: true }}
-                            transition={{ duration: 1, ease: "easeOut" }}
-                            className="h-full rounded-full bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 shadow-[0_0_10px_rgba(0,242,254,0.5)]"
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="h-full rounded-full bg-gradient-to-r from-sky-400 to-indigo-500"
                           />
                         </div>
                       </div>

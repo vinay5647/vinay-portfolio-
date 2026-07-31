@@ -12,7 +12,6 @@ import {
   Linkedin,
   Sparkles,
   CheckCircle2,
-  AlertCircle,
 } from "lucide-react";
 import confetti from "canvas-confetti";
 import { PERSONAL_INFO } from "@/lib/data";
@@ -36,22 +35,20 @@ export const ContactSection: React.FC = () => {
 
     setIsSubmitting(true);
 
-    // Simulate backend submission response
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
 
-      // Trigger celebrate confetti
       confetti({
-        particleCount: 80,
-        spread: 70,
+        particleCount: 70,
+        spread: 60,
         origin: { y: 0.6 },
-        colors: ["#00F2FE", "#7000FF", "#0072FF", "#00F5A0", "#FF007F"],
+        colors: ["#38bdf8", "#818cf8", "#c084fc", "#34d399"],
       });
 
       setFormState({ name: "", email: "", message: "" });
       setTimeout(() => setSubmitted(false), 5000);
-    }, 1000);
+    }, 900);
   };
 
   return (
@@ -60,33 +57,33 @@ export const ContactSection: React.FC = () => {
         <SectionHeading
           badge="GET IN TOUCH"
           title="Let's Build Something Intelligent Together"
-          subtitle="Whether you have an opportunity, research idea, AI project, or technical question, feel free to reach out!"
+          subtitle="Whether you have an engineering opportunity, research idea, AI project, or technical question, feel free to reach out!"
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Left Column: Direct Contact & Resume Download */}
+          {/* Left Column: Contact details */}
           <div className="lg:col-span-5 flex flex-col justify-between">
-            <GlassCard glowColor="cyan" tiltFactor={5} className="p-8 h-full">
+            <GlassCard tiltFactor={4} className="p-8 h-full">
               <div>
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Contact Details
+                  Contact Information
                 </h3>
-                <p className="text-slate-300 text-sm leading-relaxed mb-8">
-                  Available for full-time engineering roles, AI consulting, research collaborations, and internships.
+                <p className="text-zinc-400 text-sm leading-relaxed mb-8 font-normal">
+                  Available for full-time engineering roles, AI consulting, research collaborations, and software projects.
                 </p>
 
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {/* Email */}
                   <a
                     href={`mailto:${PERSONAL_INFO.email}`}
-                    className="flex items-center gap-4 group p-3 rounded-xl bg-slate-950/60 border border-white/5 hover:border-cyan-400 transition-all"
+                    className="flex items-center gap-4 group p-3.5 rounded-xl bg-zinc-950/80 border border-zinc-800 hover:border-zinc-700 transition-all"
                   >
-                    <div className="p-3 rounded-xl bg-cyan-500/10 text-cyan-400 group-hover:scale-110 transition-transform">
+                    <div className="p-3 rounded-xl bg-zinc-900 text-sky-400 group-hover:scale-105 transition-transform">
                       <Mail className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="text-xs font-mono text-slate-400 block">EMAIL ME</span>
-                      <span className="text-sm font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                      <span className="text-xs font-mono text-zinc-500 block">EMAIL ME</span>
+                      <span className="text-sm font-semibold text-white group-hover:text-sky-300 transition-colors">
                         {PERSONAL_INFO.email}
                       </span>
                     </div>
@@ -95,26 +92,26 @@ export const ContactSection: React.FC = () => {
                   {/* Phone */}
                   <a
                     href={`tel:${PERSONAL_INFO.phone.replace(/\s+/g, "")}`}
-                    className="flex items-center gap-4 group p-3 rounded-xl bg-slate-950/60 border border-white/5 hover:border-purple-400 transition-all"
+                    className="flex items-center gap-4 group p-3.5 rounded-xl bg-zinc-950/80 border border-zinc-800 hover:border-zinc-700 transition-all"
                   >
-                    <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400 group-hover:scale-110 transition-transform">
+                    <div className="p-3 rounded-xl bg-zinc-900 text-sky-400 group-hover:scale-105 transition-transform">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="text-xs font-mono text-slate-400 block">CALL / WHATSAPP</span>
-                      <span className="text-sm font-semibold text-white group-hover:text-purple-300 transition-colors">
+                      <span className="text-xs font-mono text-zinc-500 block">CALL / WHATSAPP</span>
+                      <span className="text-sm font-semibold text-white group-hover:text-sky-300 transition-colors">
                         {PERSONAL_INFO.phone}
                       </span>
                     </div>
                   </a>
 
                   {/* Location */}
-                  <div className="flex items-center gap-4 p-3 rounded-xl bg-slate-950/60 border border-white/5">
-                    <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400">
+                  <div className="flex items-center gap-4 p-3.5 rounded-xl bg-zinc-950/80 border border-zinc-800">
+                    <div className="p-3 rounded-xl bg-zinc-900 text-emerald-400">
                       <MapPin className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="text-xs font-mono text-slate-400 block">LOCATION</span>
+                      <span className="text-xs font-mono text-zinc-500 block">LOCATION</span>
                       <span className="text-sm font-semibold text-white">
                         {PERSONAL_INFO.location}
                       </span>
@@ -123,23 +120,23 @@ export const ContactSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Action Buttons & Social Links */}
-              <div className="mt-10 pt-6 border-t border-white/10 flex flex-col gap-4">
+              {/* Actions & Social Links */}
+              <div className="mt-10 pt-6 border-t border-zinc-800 flex flex-col gap-4">
                 <MagneticButton
                   asLink={PERSONAL_INFO.resumeUrl}
                   download="Vinay_Bharadwaj_Resume.pdf"
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-[0_0_20px_rgba(112,0,255,0.3)]"
+                  className="w-full bg-zinc-900 text-white border border-zinc-700 hover:bg-zinc-800"
                 >
-                  <FileText className="w-4 h-4" />
+                  <FileText className="w-4 h-4 text-sky-400" />
                   <span>Download Complete Resume</span>
                 </MagneticButton>
 
-                <div className="flex items-center justify-center gap-4 pt-2">
+                <div className="flex items-center justify-center gap-4 pt-1">
                   <a
                     href={PERSONAL_INFO.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-slate-950 border border-white/10 text-slate-300 hover:text-cyan-300 hover:border-cyan-500 transition-all"
+                    className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all"
                     data-magnetic="true"
                   >
                     <Github className="w-5 h-5" />
@@ -148,7 +145,7 @@ export const ContactSection: React.FC = () => {
                     href={PERSONAL_INFO.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-slate-950 border border-white/10 text-slate-300 hover:text-cyan-300 hover:border-cyan-500 transition-all"
+                    className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all"
                     data-magnetic="true"
                   >
                     <Linkedin className="w-5 h-5" />
@@ -158,12 +155,12 @@ export const ContactSection: React.FC = () => {
             </GlassCard>
           </div>
 
-          {/* Right Column: Glassmorphism Contact Form */}
+          {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
-            <GlassCard glowColor="purple" tiltFactor={5} className="p-8 sm:p-10">
+            <GlassCard tiltFactor={4} className="p-8 sm:p-10">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="text-xs font-mono text-cyan-300 uppercase tracking-wider block mb-2">
+                  <label className="text-xs font-mono text-zinc-400 uppercase tracking-wider block mb-2">
                     YOUR NAME
                   </label>
                   <input
@@ -174,12 +171,12 @@ export const ContactSection: React.FC = () => {
                       setFormState({ ...formState, name: e.target.value })
                     }
                     placeholder="John Doe"
-                    className="w-full px-4 py-3.5 rounded-xl bg-slate-950/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-sm"
+                    className="w-full px-4 py-3.5 rounded-xl bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-500 focus:outline-none focus:border-sky-500 transition-all text-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-mono text-cyan-300 uppercase tracking-wider block mb-2">
+                  <label className="text-xs font-mono text-zinc-400 uppercase tracking-wider block mb-2">
                     YOUR EMAIL
                   </label>
                   <input
@@ -190,12 +187,12 @@ export const ContactSection: React.FC = () => {
                       setFormState({ ...formState, email: e.target.value })
                     }
                     placeholder="john@example.com"
-                    className="w-full px-4 py-3.5 rounded-xl bg-slate-950/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-sm"
+                    className="w-full px-4 py-3.5 rounded-xl bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-500 focus:outline-none focus:border-sky-500 transition-all text-sm"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-mono text-cyan-300 uppercase tracking-wider block mb-2">
+                  <label className="text-xs font-mono text-zinc-400 uppercase tracking-wider block mb-2">
                     MESSAGE
                   </label>
                   <textarea
@@ -206,19 +203,19 @@ export const ContactSection: React.FC = () => {
                       setFormState({ ...formState, message: e.target.value })
                     }
                     placeholder="Hi Vinay, I'd like to discuss an AI project..."
-                    className="w-full px-4 py-3.5 rounded-xl bg-slate-950/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-sm resize-none"
+                    className="w-full px-4 py-3.5 rounded-xl bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-500 focus:outline-none focus:border-sky-500 transition-all text-sm resize-none"
                   />
                 </div>
 
                 <MagneticButton
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-500 text-white font-bold py-4 shadow-[0_0_30px_rgba(0,242,254,0.35)]"
+                  className="w-full bg-white text-zinc-950 font-bold py-4 shadow-lg hover:bg-zinc-200"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center gap-2">
                       <Sparkles className="w-4 h-4 animate-spin" />
-                      <span>Sending Message...</span>
+                      <span>Transmitting Message...</span>
                     </span>
                   ) : (
                     <span className="flex items-center gap-2">
@@ -232,11 +229,11 @@ export const ContactSection: React.FC = () => {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-4 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-sm flex items-center gap-3 font-medium"
+                    className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-sm flex items-center gap-3 font-medium"
                   >
                     <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
                     <span>
-                      Thank you! Your message has been transmitted successfully. Vinay will reply shortly.
+                      Thank you! Your message has been transmitted. Vinay will get back to you shortly.
                     </span>
                   </motion.div>
                 )}

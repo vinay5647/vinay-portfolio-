@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Book, Sparkles, Clock, Lock } from "lucide-react";
+import { Book, Clock, Lock } from "lucide-react";
 import { GlassCard } from "@/components/UI/GlassCard";
 import { SectionHeading } from "@/components/UI/SectionHeading";
 
@@ -16,35 +16,33 @@ export const BooksSection: React.FC = () => {
           subtitle="Comprehensive guides on AI System Design, FastAPI microservices, and Machine Learning engineering."
         />
 
-        {/* Bookshelf Showcase UI */}
         <div className="relative">
-          <GlassCard glowColor="purple" tiltFactor={5} className="p-8 md:p-12 text-center">
+          <GlassCard tiltFactor={4} className="p-8 md:p-12 text-center">
             <div className="max-w-2xl mx-auto flex flex-col items-center">
-              {/* Floating 3D Book Teaser */}
               <motion.div
-                animate={{ y: [0, -10, 0] }}
+                animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="relative w-36 h-48 mb-8 rounded-r-xl rounded-l-sm bg-gradient-to-tr from-cyan-600 via-purple-700 to-pink-600 p-4 shadow-[0_15px_35px_rgba(112,0,255,0.4)] border-l-4 border-slate-900 flex flex-col justify-between text-left"
+                className="relative w-36 h-48 mb-8 rounded-r-xl rounded-l-sm bg-gradient-to-tr from-zinc-900 via-zinc-800 to-zinc-900 p-4 border border-zinc-700/80 shadow-2xl border-l-4 border-l-sky-400 flex flex-col justify-between text-left"
               >
                 <div className="flex items-center justify-between">
-                  <Book className="w-6 h-6 text-cyan-300" />
-                  <Lock className="w-4 h-4 text-slate-300" />
+                  <Book className="w-5 h-5 text-sky-400" />
+                  <Lock className="w-3.5 h-3.5 text-zinc-400" />
                 </div>
                 <div>
-                  <span className="font-mono text-[9px] text-cyan-200 uppercase tracking-widest block mb-1">
+                  <span className="font-mono text-[9px] text-sky-300 uppercase tracking-widest block mb-1">
                     UPCOMING BOOK
                   </span>
                   <h4 className="text-xs font-bold text-white leading-tight">
                     Applied Machine Learning & FastAPI
                   </h4>
                 </div>
-                <div className="text-[8px] font-mono text-purple-200">
+                <div className="text-[8px] font-mono text-zinc-400">
                   VINAY BHARADWAJ
                 </div>
               </motion.div>
 
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono font-bold uppercase mb-4">
-                <Clock className="w-3.5 h-3.5 animate-spin" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-950 border border-zinc-800 text-sky-400 text-xs font-mono font-medium uppercase mb-4">
+                <Clock className="w-3.5 h-3.5" />
                 <span>BOOKS COMING SOON</span>
               </div>
 
@@ -52,11 +50,11 @@ export const BooksSection: React.FC = () => {
                 Authoring Technical Literature for AI Engineers
               </h3>
 
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
-                I am currently drafting technical publications focusing on production FastAPI backend development, practical machine learning deployment, and autonomous agent orchestration. Stay tuned for upcoming releases.
+              <p className="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+                Currently drafting technical literature on production FastAPI microservices, practical machine learning model deployments, and autonomous agent systems.
               </p>
 
-              <div className="flex items-center justify-center gap-4 text-xs font-mono text-slate-400">
+              <div className="flex items-center justify-center gap-4 text-xs font-mono text-zinc-500">
                 <span>ESTIMATED RELEASE: Q4 2025</span>
                 <span>•</span>
                 <span>PYTHON & AI FOCUS</span>
