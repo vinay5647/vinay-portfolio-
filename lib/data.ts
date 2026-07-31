@@ -56,6 +56,7 @@ export const PERSONAL_INFO = {
   email: "bharadwajvinay40@gmail.com",
   phone: "+91 8147836287",
   location: "Mysore, India",
+  portfolioUrl: "https://vinaybharadwaj-portfolio.vercel.app/",
   github: "https://github.com/vinay5647/vinay-portfolio-",
   githubProfile: "https://github.com/vinay5647",
   linkedin: "https://linkedin.com/in/vinay-bharadwaj",

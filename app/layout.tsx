@@ -20,6 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://vinaybharadwaj-portfolio.vercel.app"),
   title: "Vinay Bharadwaj | AI & Machine Learning Engineer Portfolio",
   description:
     "Portfolio of Vinay Bharadwaj — AI & Machine Learning Engineer, Python Developer, FastAPI Specialist, and Intelligent Systems Builder. Explore projects, research, skills, and certifications.",
@@ -38,6 +39,7 @@ export const metadata: Metadata = {
     title: "Vinay Bharadwaj | AI & Machine Learning Engineer",
     description:
       "Awwwards-inspired portfolio showcasing AI applications, Python backends, machine learning solutions, and research publications.",
+    url: "https://vinaybharadwaj-portfolio.vercel.app",
     type: "website",
   },
 };
