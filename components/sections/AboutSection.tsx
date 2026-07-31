@@ -26,23 +26,16 @@ export const AboutSection: React.FC = () => {
               className="p-8 w-full max-w-md flex flex-col items-center text-center"
               dataCursorText="VINAY"
             >
-              {/* Professional Photo */}
-              <div className="relative w-48 h-56 mb-6 rounded-2xl overflow-hidden border border-zinc-700/80 shadow-xl group">
-                <Image
-                  src={PERSONAL_INFO.profileImage}
-                  alt={PERSONAL_INFO.name}
-                  fill
-                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-40" />
-                
-                {/* Status Indicator */}
-                <div className="absolute bottom-3 left-3 right-3 px-3 py-1.5 rounded-xl bg-zinc-950/80 backdrop-blur-md border border-zinc-800 flex items-center justify-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[10px] font-mono text-zinc-300 font-semibold uppercase tracking-wider">
-                    AI & ML ENGINEER
-                  </span>
+              {/* Circular Professional Photo */}
+              <div className="relative w-44 h-44 sm:w-52 sm:h-52 mb-6 rounded-full overflow-hidden border-2 border-sky-400 p-1 bg-gradient-to-tr from-sky-400 via-indigo-500 to-purple-600 shadow-[0_0_30px_rgba(56,189,248,0.3)] group">
+                <div className="relative w-full h-full rounded-full overflow-hidden bg-zinc-950">
+                  <Image
+                    src={PERSONAL_INFO.profileImage}
+                    alt={PERSONAL_INFO.name}
+                    fill
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    priority
+                  />
                 </div>
               </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   FileText,
@@ -12,7 +13,6 @@ import {
   ArrowRight,
   ChevronDown,
   Terminal,
-  Sparkles,
 } from "lucide-react";
 import { PERSONAL_INFO, FLOATING_TECH_BADGES } from "@/lib/data";
 import { MagneticButton } from "@/components/UI/MagneticButton";
@@ -52,6 +52,24 @@ export const HeroSection: React.FC = () => {
       className="relative min-h-screen pt-32 pb-20 flex flex-col justify-center items-center overflow-hidden z-10"
     >
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+        {/* Circular Professional Avatar right when site opens */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="relative w-36 h-36 sm:w-44 sm:h-44 mb-6 rounded-full overflow-hidden border-2 border-sky-400 shadow-[0_0_35px_rgba(56,189,248,0.35)] p-1 bg-gradient-to-tr from-sky-400 via-indigo-500 to-purple-600"
+        >
+          <div className="relative w-full h-full rounded-full overflow-hidden bg-zinc-950">
+            <Image
+              src={PERSONAL_INFO.profileImage}
+              alt={PERSONAL_INFO.name}
+              fill
+              className="object-cover object-top hover:scale-105 transition-transform duration-500"
+              priority
+            />
+          </div>
+        </motion.div>
+
         {/* Sleek Vercel Badge */}
         <motion.div
           initial={{ opacity: 0, y: -15 }}
