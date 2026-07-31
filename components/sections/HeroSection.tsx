@@ -9,13 +9,14 @@ import {
   Github,
   Linkedin,
   Mail,
-  Phone,
   ArrowRight,
-  ChevronDown,
+  Download,
   Terminal,
+  Star,
+  GitBranch,
+  Users,
 } from "lucide-react";
-import { PERSONAL_INFO, FLOATING_TECH_BADGES } from "@/lib/data";
-import { MagneticButton } from "@/components/UI/MagneticButton";
+import { PERSONAL_INFO } from "@/lib/data";
 
 export const HeroSection: React.FC = () => {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -47,188 +48,182 @@ export const HeroSection: React.FC = () => {
   }, [displayedText, isDeleting, roleIndex]);
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen pt-32 pb-20 flex flex-col justify-center items-center overflow-hidden z-10"
-    >
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-        {/* Circular Professional Avatar right when site opens */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="relative w-36 h-36 sm:w-44 sm:h-44 mb-6 rounded-full overflow-hidden border-2 border-sky-400 shadow-[0_0_35px_rgba(56,189,248,0.35)] p-1 bg-gradient-to-tr from-sky-400 via-indigo-500 to-purple-600"
-        >
-          <div className="relative w-full h-full rounded-full overflow-hidden bg-zinc-950">
-            <Image
-              src={PERSONAL_INFO.profileImage}
-              alt={PERSONAL_INFO.name}
-              fill
-              className="object-cover object-top hover:scale-105 transition-transform duration-500"
-              priority
-            />
+    <section className="min-h-[calc(100vh-80px)] flex flex-col justify-center py-16 relative overflow-hidden z-10">
+      <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+        
+        {/* Left Column: Text & CTAs */}
+        <div className="text-center lg:text-left space-y-6">
+          
+          {/* Status Pill */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Available for AI & ML Opportunities</span>
           </div>
-        </motion.div>
 
-        {/* Sleek Vercel Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-800 text-sky-400 text-xs font-mono tracking-wider uppercase mb-8 shadow-sm"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-          </span>
-          <span>FINAL-YEAR COMPUTER SCIENCE (AI & ML) ENGINEER</span>
-        </motion.div>
+          <h2 className="text-sky-400 text-lg md:text-xl font-mono tracking-widest uppercase">
+            HELLO, I AM
+          </h2>
 
-        {/* Main Clean Title */}
-        <motion.h1
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white leading-tight"
-        >
-          Vinay Bharadwaj
-        </motion.h1>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400">
+              {PERSONAL_INFO.name}
+            </span>
+          </h1>
 
-        {/* Subtitle & Dynamic Typewriter Role */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 text-lg sm:text-2xl font-medium text-zinc-300"
-        >
-          <span>AI & Machine Learning Engineer</span>
-          <span className="hidden sm:inline text-zinc-600">•</span>
-          <div className="h-9 flex items-center px-3.5 py-1 rounded-lg bg-zinc-900/80 border border-zinc-800 text-sky-300 font-mono text-sm sm:text-base">
-            <Terminal className="w-4 h-4 mr-2 text-sky-400" />
-            <span>{displayedText}</span>
-            <span className="animate-pulse text-sky-400 ml-0.5">_</span>
-          </div>
-        </motion.div>
-
-        {/* Short Professional Narrative */}
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-6 text-zinc-300 text-base sm:text-lg max-w-3xl leading-relaxed font-normal"
-        >
-          {PERSONAL_INFO.heroBio}
-        </motion.p>
-
-        {/* Action Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
-        >
-          <MagneticButton
-            asLink="#projects"
-            className="bg-white text-zinc-950 font-semibold shadow-lg hover:bg-zinc-200"
-          >
-            <span>View Projects</span>
-            <ArrowRight className="w-4 h-4" />
-          </MagneticButton>
-
-          <MagneticButton
-            asLink={PERSONAL_INFO.resumeUrl}
-            download="Vinay_Bharadwaj_Resume.pdf"
-            className="bg-zinc-900 text-zinc-100 border border-zinc-700/80 hover:bg-zinc-800 hover:border-zinc-600"
-          >
-            <FileText className="w-4 h-4 text-sky-400" />
-            <span>Download Resume</span>
-          </MagneticButton>
-
-          <MagneticButton
-            asLink="#contact"
-            className="bg-zinc-900/60 text-zinc-300 border border-zinc-800 hover:text-white hover:border-zinc-700"
-          >
-            <Send className="w-4 h-4 text-zinc-400" />
-            <span>Contact Me</span>
-          </MagneticButton>
-        </motion.div>
-
-        {/* Tech Stack Badges Pill Container */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-12 w-full max-w-4xl"
-        >
-          <div className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-4">
-            FEATURED ENGINEERING TECH STACK
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            {FLOATING_TECH_BADGES.map((badge) => (
-              <span
-                key={badge}
-                className="px-3.5 py-1.5 rounded-full bg-zinc-900/80 border border-zinc-800 text-zinc-300 text-xs font-mono hover:border-sky-500/50 hover:text-white transition-all cursor-pointer shadow-sm"
-                data-magnetic="true"
-                data-cursor-text={badge}
-              >
-                {badge}
+          {/* Typewriter Subtitle */}
+          <h3 className="text-xl md:text-3xl font-light text-slate-300 min-h-[40px]">
+            <span className="inline-flex items-center gap-2">
+              <Terminal className="w-6 h-6 text-sky-400 inline-block" />
+              <span className="font-mono text-sky-300 font-semibold">
+                {displayedText}
               </span>
-            ))}
-          </div>
-        </motion.div>
+              <span className="inline-block w-[3px] h-[1em] bg-sky-400 ml-0.5 align-middle animate-pulse" />
+            </span>
+          </h3>
 
-        {/* Quick Contact Line */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-zinc-400 font-medium"
-        >
-          <a
-            href={`mailto:${PERSONAL_INFO.email}`}
-            className="flex items-center gap-2 hover:text-sky-300 transition-colors"
-          >
-            <Mail className="w-4 h-4 text-sky-400" />
-            <span>{PERSONAL_INFO.email}</span>
-          </a>
-          <a
-            href={`tel:${PERSONAL_INFO.phone.replace(/\s+/g, "")}`}
-            className="flex items-center gap-2 hover:text-sky-300 transition-colors"
-          >
-            <Phone className="w-4 h-4 text-sky-400" />
-            <span>{PERSONAL_INFO.phone}</span>
-          </a>
-          <div className="flex items-center gap-3">
+          <h4 className="text-base md:text-lg font-light text-zinc-400">
+            Final-Year Computer Science (AI & ML) • Maharaja Institute of Technology Mysore
+          </h4>
+
+          {/* Narrative Bio */}
+          <p className="text-zinc-300 text-base md:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            {PERSONAL_INFO.heroBio}
+          </p>
+
+          {/* Buttons Row */}
+          <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+            <a
+              href="#projects"
+              className="px-8 py-4 bg-sky-500/10 border border-sky-400 text-sky-300 rounded-full font-medium hover:bg-sky-400 hover:text-zinc-950 transition-all duration-300 flex items-center gap-2 group shadow-lg"
+              data-magnetic="true"
+            >
+              <span>View Projects</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+
+            <a
+              href="#about"
+              className="px-8 py-4 bg-white/5 border border-white/10 text-white rounded-full font-medium hover:bg-white/10 transition-all duration-300"
+              data-magnetic="true"
+            >
+              About Me
+            </a>
+
+            <a
+              href={PERSONAL_INFO.resumeUrl}
+              download="Vinay_Bharadwaj_Resume.pdf"
+              className="px-8 py-4 bg-purple-500/10 border border-purple-400 text-purple-300 rounded-full font-medium hover:bg-purple-500 hover:text-white transition-all duration-300 flex items-center gap-2"
+              data-magnetic="true"
+            >
+              <span>Resume</span>
+              <Download className="w-5 h-5" />
+            </a>
+          </div>
+
+          {/* Social Icons Row */}
+          <div className="flex gap-6 justify-center lg:justify-start pt-4">
             <a
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all"
+              className="text-zinc-400 hover:text-sky-400 transition-colors duration-300 transform hover:scale-110"
+              aria-label="GitHub"
+              data-magnetic="true"
             >
-              <Github className="w-4 h-4" />
+              <Github className="w-7 h-7" />
             </a>
             <a
               href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all"
+              className="text-zinc-400 hover:text-purple-400 transition-colors duration-300 transform hover:scale-110"
+              aria-label="LinkedIn"
+              data-magnetic="true"
             >
-              <Linkedin className="w-4 h-4" />
+              <Linkedin className="w-7 h-7" />
+            </a>
+            <a
+              href={`mailto:${PERSONAL_INFO.email}`}
+              className="text-zinc-400 hover:text-emerald-400 transition-colors duration-300 transform hover:scale-110"
+              aria-label="Email"
+              data-magnetic="true"
+            >
+              <Mail className="w-7 h-7" />
             </a>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="mt-14 text-zinc-500 hover:text-zinc-300 transition-colors cursor-pointer"
-        >
-          <a href="#about" className="flex flex-col items-center gap-1 text-[11px] font-mono tracking-widest uppercase">
-            <span>SCROLL DOWN</span>
-            <ChevronDown className="w-4 h-4" />
-          </a>
-        </motion.div>
+        {/* Right Column: 3 Concentric Spinning Orbit Rings with Vinay's Circular Photo */}
+        <div className="relative mx-auto lg:ml-auto">
+          <div className="relative w-[300px] h-[300px] md:w-[440px] md:h-[440px]">
+            {/* Outer Ring 1 */}
+            <div className="absolute inset-0 border-2 border-sky-400/40 rounded-full animate-[spin_12s_linear_infinite]" />
+            {/* Middle Ring 2 */}
+            <div className="absolute inset-3 border-2 border-purple-500/40 rounded-full animate-[spin_16s_linear_infinite_reverse]" />
+            {/* Inner Ring 3 */}
+            <div className="absolute inset-6 border-2 border-emerald-400/40 rounded-full animate-[spin_20s_linear_infinite]" />
+            
+            {/* Center Image Container */}
+            <div className="absolute inset-8 rounded-full bg-zinc-950 border border-white/10 flex items-center justify-center overflow-hidden shadow-[0_0_50px_rgba(56,189,248,0.3)]">
+              <Image
+                src={PERSONAL_INFO.profileImage}
+                alt={PERSONAL_INFO.name}
+                fill
+                className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* GitHub Contributions Card on Home Page */}
+      <div className="mt-20 max-w-5xl mx-auto px-4 w-full">
+        <div className="bg-zinc-900/80 backdrop-blur-xl p-8 rounded-2xl border border-zinc-800 shadow-xl">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex items-center gap-4">
+              <Github className="w-12 h-12 text-white shrink-0" />
+              <div>
+                <h2 className="text-2xl font-bold text-white">GitHub Contributions</h2>
+                <p className="text-zinc-400 text-sm">Open source activity & AI repositories</p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-8 text-center justify-center">
+              <div>
+                <div className="text-2xl sm:text-3xl font-bold text-sky-400 flex justify-center items-center gap-2 font-mono">
+                  <Star className="w-5 h-5 text-amber-400" /> Active
+                </div>
+                <p className="text-zinc-500 text-xs mt-1 font-mono">Repositories</p>
+              </div>
+
+              <div>
+                <div className="text-2xl sm:text-3xl font-bold text-purple-400 flex justify-center items-center gap-2 font-mono">
+                  <GitBranch className="w-5 h-5 text-purple-400" /> 2025
+                </div>
+                <p className="text-zinc-500 text-xs mt-1 font-mono">Latest Activity</p>
+              </div>
+
+              <div>
+                <div className="text-2xl sm:text-3xl font-bold text-emerald-400 flex justify-center items-center gap-2 font-mono">
+                  <Users className="w-5 h-5 text-emerald-400" /> 10+
+                </div>
+                <p className="text-zinc-500 text-xs mt-1 font-mono">Projects Built</p>
+              </div>
+            </div>
+
+            <a
+              href={PERSONAL_INFO.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-white/10 rounded-xl text-white font-medium hover:bg-white/20 transition-colors border border-white/10"
+              data-magnetic="true"
+            >
+              View Profile
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
