@@ -117,7 +117,7 @@ export const HeroSection: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-6 text-zinc-300 text-base sm:text-lg max-w-3xl leading-relaxed font-normal"
         >
-          {PERSONAL_INFO.bio}
+          {PERSONAL_INFO.heroBio}
         </motion.p>
 
         {/* Action Buttons */}
