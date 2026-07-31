@@ -57,9 +57,9 @@ export const PERSONAL_INFO = {
   phone: "+91 8147836287",
   location: "Mysore, India",
   portfolioUrl: "https://vinaybharadwaj-portfolio.vercel.app/",
-  github: "https://github.com/vinay5647/vinay-portfolio-",
+  github: "https://github.com/vinay5647",
   githubProfile: "https://github.com/vinay5647",
-  linkedin: "https://linkedin.com/in/vinay-bharadwaj",
+  linkedin: "https://www.linkedin.com/in/vinay-bharadwaj-247ab7354",
   resumeUrl: "/Vinay_Bharadwaj_Resume.pdf",
   education: {
     degree: "Bachelor of Engineering",

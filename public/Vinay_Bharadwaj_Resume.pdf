@@ -9,43 +9,67 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
 endobj
 4 0 obj
-<< /Length 580 >>
+<< /Length 1200 >>
 stream
 BT
-/F1 24 Tf
-50 720 Td
-(VINAY BHARADWAJ) Tj
-/F1 12 Tf
+/F1 22 Tf
+220 740 Td
+(Vinay Bharadwaj) Tj
+/F1 10 Tf
+-120 -20 Td
+(+91 8147836287 | bharadwajvinay40@gmail.com | LinkedIn | GitHub) Tj
 0 -25 Td
-(AI & Machine Learning Engineer | Python & FastAPI Developer) Tj
-0 -15 Td
-(Email: bharadwajvinay40@gmail.com | Phone: +91 8147836287) Tj
-0 -15 Td
-(GitHub: https://github.com/vinay5647/vinay-portfolio-) Tj
-0 -30 Td
+(PROFESSIONAL SUMMARY) Tj
+0 -12 Td
+(Final-year Computer Science and Engineering (AIML) student with a strong foundation in Python, machine learning,) Tj
+0 -12 Td
+(and software development. Passionate about building practical, real-world solutions through AI and continuously) Tj
+0 -12 Td
+(improving technical skills by working on hands-on projects and internships.) Tj
+0 -20 Td
 (EDUCATION) Tj
-0 -15 Td
-(Bachelor of Engineering in Computer Science - AI & ML) Tj
-0 -15 Td
-(Maharaja Institute of Technology Mysore | 2021 - 2025) Tj
-0 -30 Td
-(TECHNICAL SKILLS) Tj
-0 -15 Td
-(Languages & Tools: Python, C++, Java, FastAPI, REST APIs, SQL, MongoDB) Tj
-0 -15 Td
-(AI/ML & Frontend: Machine Learning, NLP, Deep Learning, React, Next.js) Tj
-0 -30 Td
+0 -12 Td
+(Bachelor of Engineering - Computer Science (AI & ML) | Present) Tj
+0 -12 Td
+(Maharaja Institute of Technology Mysore) Tj
+0 -20 Td
 (PROJECTS) Tj
+0 -12 Td
+(Sentiment Analysis using NLP (Python, Scikit-learn, NLTK, Pandas) - 2025) Tj
+0 -12 Td
+(- Developed an NLP-based sentiment analysis model achieving 85% classification accuracy.) Tj
 0 -15 Td
-(1. People Meet Agent - Autonomous AI Scheduling & Matching Agent) Tj
+(Rain Detection System using ESP8266 - 2025) Tj
+0 -12 Td
+(- IoT rain detection system to monitor rainfall, temperature, and humidity with real-time visualization.) Tj
 0 -15 Td
-(2. Sentiment Analysis using NLP - Deep Learning Transformer Classification) Tj
+(AI Unit Converter (Flutter) - 2025) Tj
+0 -12 Td
+(- Cross-platform unit converter application built with Flutter & Dart featuring offline functionality.) Tj
 0 -15 Td
-(3. Rain Detection System - Machine Learning Meteorological Forecast Model) Tj
+(People Meet Agent - 2025) Tj
+0 -12 Td
+(- AI-powered event management platform automating event discovery & personalized recommendations.) Tj
 0 -15 Td
-(4. AI Unit Converter - Contextual Natural Language Conversion Engine) Tj
-0 -15 Td
-(5. Agritech Startup Website - Full-Stack Crop Diagnostics & Analytics Portal) Tj
+(Agritech Start up website - 2026) Tj
+0 -12 Td
+(- Built responsive website from scratch for an agritech startup within 24 hours.) Tj
+0 -20 Td
+(TECHNICAL SKILLS) Tj
+0 -12 Td
+(Programming: Python, C++ (Oops), Basics of Java) Tj
+0 -12 Td
+(Machine Learning/AI: NLP, Basics of Deep Learning, Data Science) Tj
+0 -12 Td
+(Databases & Tools: SQL, MongoDB, Data Visualization | Version Control: GitHub) Tj
+0 -12 Td
+(Frontend: HTML, CSS | Soft Skills: Leadership, Communication, Team Collaboration) Tj
+0 -20 Td
+(ACHIEVEMENTS & ADDITIONAL INFO) Tj
+0 -12 Td
+(- 2X Ideathon Winner | Finalist in multiple technical innovation competitions) Tj
+0 -12 Td
+(- Languages: English, Kannada, Hindi) Tj
 ET
 endstream
 endobj
@@ -59,9 +83,9 @@ xref
 0000000058 00000 n 
 0000000115 00000 n 
 0000000246 00000 n 
-0000000877 00000 n 
+0000001500 00000 n 
 trailer
 << /Size 6 /Root 1 0 R >>
 startxref
-948
+1570
 %%EOF
