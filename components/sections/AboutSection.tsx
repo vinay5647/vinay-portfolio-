@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { GraduationCap, Code, Zap, Sparkles } from "lucide-react";
 import { PERSONAL_INFO } from "@/lib/data";
@@ -26,19 +25,6 @@ export const AboutSection: React.FC = () => {
               className="p-8 w-full max-w-md flex flex-col items-center text-center"
               dataCursorText="VINAY"
             >
-              {/* Circular Professional Photo */}
-              <div className="relative w-44 h-44 sm:w-52 sm:h-52 mb-6 rounded-full overflow-hidden border-2 border-sky-400 p-1 bg-gradient-to-tr from-sky-400 via-indigo-500 to-purple-600 shadow-[0_0_30px_rgba(56,189,248,0.3)] group">
-                <div className="relative w-full h-full rounded-full overflow-hidden bg-zinc-950">
-                  <Image
-                    src={PERSONAL_INFO.profileImage}
-                    alt={PERSONAL_INFO.name}
-                    fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    priority
-                  />
-                </div>
-              </div>
-
               <h3 className="text-2xl font-bold text-white mb-1">
                 {PERSONAL_INFO.name}
               </h3>
