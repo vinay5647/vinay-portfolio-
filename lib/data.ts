@@ -9,6 +9,7 @@ export interface Project {
   liveUrl?: string;
   featured: boolean;
   isFuture?: boolean;
+  metric?: string;
 }
 
 export interface ResearchPaper {
@@ -159,6 +160,7 @@ export const PROJECTS_DATA: Project[] = [
     githubUrl: "https://github.com/vinay5647/people-meet-agent",
     liveUrl: "https://people-meet-agent.vercel.app",
     featured: true,
+    metric: "🤖 Autonomous AI Agent",
   },
   {
     id: "sentiment-analysis-nlp",
@@ -171,6 +173,7 @@ export const PROJECTS_DATA: Project[] = [
     githubUrl: "https://github.com/vinay5647/sentiment-analysis-nlp",
     liveUrl: "https://sentiment-nlp-demo.vercel.app",
     featured: true,
+    metric: "⚡ 85% Model Accuracy",
   },
   {
     id: "rain-detection-system",
@@ -179,9 +182,10 @@ export const PROJECTS_DATA: Project[] = [
     longDescription:
       "Predictive machine learning pipeline trained on micro-climatic atmospheric data to deliver hyper-local rain forecasts and real-time precipitation alerts.",
     image: "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?q=80&w=1200&auto=format&fit=crop",
-    tags: ["Machine Learning", "Python", "Data Science", "OpenCV", "SQL"],
+    tags: ["Machine Learning", "Python", "Data Science", "ESP8266", "SQL"],
     githubUrl: "https://github.com/vinay5647/rain-detection-system",
     featured: true,
+    metric: "📡 Real-Time IoT Sensors",
   },
   {
     id: "ai-unit-converter",
@@ -190,10 +194,11 @@ export const PROJECTS_DATA: Project[] = [
     longDescription:
       "Converts complex scientific and engineering measurements based on conversational text queries e.g., 'convert 50 PSI to kilopascals in vacuum conditions'.",
     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
-    tags: ["Next.js", "Python", "FastAPI", "Tailwind CSS", "TypeScript"],
+    tags: ["Flutter", "Dart", "Python", "FastAPI", "Tailwind CSS"],
     githubUrl: "https://github.com/vinay5647/ai-unit-converter",
     liveUrl: "https://ai-unit-converter.vercel.app",
     featured: true,
+    metric: "📱 Cross-Platform Flutter",
   },
   {
     id: "agritech-startup-website",
@@ -206,6 +211,7 @@ export const PROJECTS_DATA: Project[] = [
     githubUrl: "https://github.com/vinay5647/agritech-startup-website",
     liveUrl: "https://agritech-demo.vercel.app",
     featured: true,
+    metric: "⏱️ 24h Hackathon Build",
   },
 ];
 
