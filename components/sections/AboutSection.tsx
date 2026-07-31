@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { GraduationCap, Brain, Code, Zap, Sparkles, MapPin } from "lucide-react";
+import { GraduationCap, Code, Zap, Sparkles } from "lucide-react";
 import { PERSONAL_INFO } from "@/lib/data";
 import { GlassCard } from "@/components/UI/GlassCard";
 import { SectionHeading } from "@/components/UI/SectionHeading";
@@ -18,22 +19,30 @@ export const AboutSection: React.FC = () => {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Avatar & Profile Details */}
+          {/* Left Column: Official Professional Photograph & Card */}
           <div className="lg:col-span-5 flex flex-col items-center">
             <GlassCard
               tiltFactor={6}
               className="p-8 w-full max-w-md flex flex-col items-center text-center"
               dataCursorText="VINAY"
             >
-              <div className="relative w-40 h-40 mb-6">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-sky-400 via-indigo-500 to-violet-600 p-0.5 shadow-lg" />
-                <div className="absolute inset-[2px] bg-zinc-950 rounded-[22px] flex items-center justify-center overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-b from-zinc-900 via-zinc-950 to-zinc-950 flex flex-col items-center justify-center p-4">
-                    <Brain className="w-14 h-14 text-sky-400 mb-2" />
-                    <span className="font-mono text-xs font-semibold text-zinc-400 tracking-wider">
-                      VINAY BHARADWAJ
-                    </span>
-                  </div>
+              {/* Professional Photo */}
+              <div className="relative w-48 h-56 mb-6 rounded-2xl overflow-hidden border border-zinc-700/80 shadow-xl group">
+                <Image
+                  src={PERSONAL_INFO.profileImage}
+                  alt={PERSONAL_INFO.name}
+                  fill
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-40" />
+                
+                {/* Status Indicator */}
+                <div className="absolute bottom-3 left-3 right-3 px-3 py-1.5 rounded-xl bg-zinc-950/80 backdrop-blur-md border border-zinc-800 flex items-center justify-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-[10px] font-mono text-zinc-300 font-semibold uppercase tracking-wider">
+                    AI & ML ENGINEER
+                  </span>
                 </div>
               </div>
 
@@ -67,7 +76,7 @@ export const AboutSection: React.FC = () => {
             </GlassCard>
           </div>
 
-          {/* Right Column: Narrative & Focus Pillars */}
+          {/* Right Column: Updated Bio Narrative & Focus Pillars */}
           <div className="lg:col-span-7 flex flex-col gap-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -77,11 +86,13 @@ export const AboutSection: React.FC = () => {
               className="space-y-4 text-zinc-300 leading-relaxed text-base sm:text-lg font-normal"
             >
               <p>
-                I am a final-year Computer Science Engineering student specializing in{" "}
-                <span className="text-white font-semibold">Artificial Intelligence & Machine Learning</span> at Maharaja Institute of Technology Mysore.
+                Hi, I&apos;m <span className="text-white font-semibold font-sans">Vinay Bharadwaj</span> — an aspiring AI & Machine Learning Engineer driven by curiosity and innovation.
               </p>
               <p>
-                My engineering focus combines practical machine learning models, production Python backends with FastAPI, and full-stack software development. I specialize in architecting intelligent systems that solve real-world problems.
+                I specialize in building intelligent applications, AI-powered systems, and scalable backend solutions using Python, FastAPI, Machine Learning, and modern web technologies. I enjoy transforming complex ideas into practical, impactful software while continuously exploring the latest advancements in AI.
+              </p>
+              <p className="text-sky-300 font-medium">
+                My goal is to create technology that not only works efficiently but also delivers meaningful value to people and businesses.
               </p>
             </motion.div>
 
