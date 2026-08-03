@@ -8,6 +8,8 @@ export interface Project {
   githubUrl: string;
   liveUrl?: string;
   paperUrl?: string;
+  codeComingSoon?: boolean;
+  demoComingSoon?: boolean;
   featured: boolean;
   isFuture?: boolean;
   metric?: string;
@@ -162,8 +164,23 @@ export const PROJECTS_DATA: Project[] = [
     githubUrl: "https://github.com/vinay5647/people-meet-agent",
     liveUrl: "https://people-meet-agent.vercel.app",
     paperUrl: "/People_Meet_Agent_Paper.pdf",
+    codeComingSoon: true,
+    demoComingSoon: true,
     featured: true,
-    metric: "🤖 Autonomous AI Agent",
+    metric: "📄 Published Paper Available",
+  },
+  {
+    id: "ai-engineer-portfolio",
+    title: "AI Engineer Portfolio Website",
+    description: "High-performance Awwwards-inspired portfolio built with Next.js 15, TypeScript, Tailwind CSS, and ambient canvas shaders.",
+    longDescription:
+      "Full-stack personal engineering platform showcasing AI projects, published research papers, verified credentials, and interactive micro-demos.",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop",
+    tags: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion", "Lenis"],
+    githubUrl: "https://github.com/vinay5647/vinay-portfolio-",
+    liveUrl: "https://vinaybharadwaj-portfolio.vercel.app/",
+    featured: true,
+    metric: "🌐 Live Next.js 15",
   },
   {
     id: "sentiment-analysis-nlp",

@@ -89,18 +89,30 @@ export const ProjectsSection: React.FC = () => {
                 {/* Card Action Footer */}
                 <div className="p-6 pt-0 flex items-center justify-between border-t border-zinc-800/80 gap-2">
                   <div className="flex flex-wrap items-center gap-2">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-2.5 py-1.5 rounded-lg bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all flex items-center gap-1 text-xs font-medium"
-                      data-magnetic="true"
-                    >
-                      <Github className="w-3.5 h-3.5" />
-                      <span>Code</span>
-                    </a>
+                    {project.codeComingSoon ? (
+                      <span className="px-2.5 py-1.5 rounded-lg bg-zinc-950/60 border border-zinc-800/80 text-zinc-500 text-xs font-mono flex items-center gap-1">
+                        <Github className="w-3.5 h-3.5 opacity-50" />
+                        <span>Code Soon</span>
+                      </span>
+                    ) : (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-2.5 py-1.5 rounded-lg bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all flex items-center gap-1 text-xs font-medium"
+                        data-magnetic="true"
+                      >
+                        <Github className="w-3.5 h-3.5" />
+                        <span>Code</span>
+                      </a>
+                    )}
 
-                    {project.liveUrl && (
+                    {project.demoComingSoon ? (
+                      <span className="px-2.5 py-1.5 rounded-lg bg-zinc-950/60 border border-zinc-800/80 text-zinc-500 text-xs font-mono flex items-center gap-1">
+                        <ExternalLink className="w-3.5 h-3.5 opacity-50" />
+                        <span>Demo Soon</span>
+                      </span>
+                    ) : project.liveUrl ? (
                       <a
                         href={project.liveUrl}
                         target="_blank"
@@ -111,7 +123,7 @@ export const ProjectsSection: React.FC = () => {
                         <ExternalLink className="w-3.5 h-3.5" />
                         <span>Demo</span>
                       </a>
-                    )}
+                    ) : null}
 
                     {project.paperUrl && (
                       <a
@@ -262,17 +274,29 @@ export const ProjectsSection: React.FC = () => {
             </div>
 
             <div className="pt-4 border-t border-zinc-800 flex flex-wrap items-center justify-end gap-3">
-              <a
-                href={selectedProject.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2.5 rounded-xl bg-zinc-800 text-white hover:bg-zinc-700 transition-colors flex items-center gap-2 text-sm font-medium"
-              >
-                <Github className="w-4 h-4" />
-                <span>View Repository</span>
-              </a>
+              {selectedProject.codeComingSoon ? (
+                <span className="px-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-500 text-xs font-mono flex items-center gap-2">
+                  <Github className="w-4 h-4 opacity-50" />
+                  <span>Code Coming Soon</span>
+                </span>
+              ) : (
+                <a
+                  href={selectedProject.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 rounded-xl bg-zinc-800 text-white hover:bg-zinc-700 transition-colors flex items-center gap-2 text-sm font-medium"
+                >
+                  <Github className="w-4 h-4" />
+                  <span>View Repository</span>
+                </a>
+              )}
 
-              {selectedProject.liveUrl && (
+              {selectedProject.demoComingSoon ? (
+                <span className="px-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-500 text-xs font-mono flex items-center gap-2">
+                  <ExternalLink className="w-4 h-4 opacity-50" />
+                  <span>Demo Coming Soon</span>
+                </span>
+              ) : selectedProject.liveUrl ? (
                 <a
                   href={selectedProject.liveUrl}
                   target="_blank"
@@ -282,7 +306,7 @@ export const ProjectsSection: React.FC = () => {
                   <ExternalLink className="w-4 h-4" />
                   <span>Launch Demo</span>
                 </a>
-              )}
+              ) : null}
 
               {selectedProject.paperUrl && (
                 <a
