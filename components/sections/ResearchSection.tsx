@@ -62,14 +62,14 @@ export const ResearchSection: React.FC = () => {
                   </div>
 
                   <a
-                    href={`https://doi.org/${paper.doi}`}
+                    href={paper.pdfUrl || `https://doi.org/${paper.doi}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 rounded-xl bg-white text-zinc-950 font-sans text-xs font-semibold hover:bg-zinc-200 transition-all flex items-center gap-2"
+                    className="px-5 py-2.5 rounded-xl bg-sky-500 text-zinc-950 font-sans text-xs font-bold hover:bg-sky-400 transition-all flex items-center gap-2 shadow-lg"
                     data-magnetic="true"
                   >
                     <BookOpen className="w-4 h-4" />
-                    <span>Read Paper</span>
+                    <span>Read Published Paper (PDF)</span>
                   </a>
                 </div>
               </GlassCard>

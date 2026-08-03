@@ -245,14 +245,15 @@ export const FUTURE_PROJECTS: Project[] = [
 
 export const RESEARCH_PUBLICATIONS: ResearchPaper[] = [
   {
-    id: "research-1",
-    title: "Optimizing NLP Transformers for Real-Time Sentiment & Intent Parsing in Edge Systems",
-    conference: "International Conference on AI & Intelligent Systems (ICAIS 2025)",
-    date: "January 2025",
-    doi: "10.1109/ICAIS.2025.1098234",
-    citations: 12,
+    id: "people-meet-agent-paper",
+    title: "People Meet Agent: An Intelligent Event Discovery and Management System Powered by Agentic Artificial Intelligence",
+    conference: "IARJSET (Vol. 12, Issue 12) | Impact Factor 8.311 | ISSN: 2393-8021",
+    date: "December 2025",
+    doi: "10.17148/IARJSET.2025.121248",
+    citations: 18,
+    pdfUrl: "/People_Meet_Agent_Paper.pdf",
     summary:
-      "Explores lightweight BERT distillation architectures and FastAPI streaming pipelines for sub-20ms inference latency in resource-constrained web backends.",
+      "Presents People Meet Agent, an intelligent event discovery and management system powered by Agentic Artificial Intelligence. The system acts as a smart assistant that understands user preferences through conversational interaction and autonomously performs tasks such as event discovery, recommendation, and booking.",
   },
 ];
 
