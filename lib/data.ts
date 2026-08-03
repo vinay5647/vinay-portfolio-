@@ -171,7 +171,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "ai-engineer-portfolio",
-    title: "AI Engineer Portfolio Website",
+    title: "Vinay's Portfolio",
     description: "High-performance Awwwards-inspired portfolio built with Next.js 15, TypeScript, Tailwind CSS, and ambient canvas shaders.",
     longDescription:
       "Full-stack personal engineering platform showcasing AI projects, published research papers, verified credentials, and interactive micro-demos.",
@@ -192,6 +192,8 @@ export const PROJECTS_DATA: Project[] = [
     tags: ["Python", "NLP", "Deep Learning", "FastAPI", "Tailwind CSS"],
     githubUrl: "https://github.com/vinay5647/sentiment-analysis-nlp",
     liveUrl: "https://sentiment-nlp-demo.vercel.app",
+    codeComingSoon: true,
+    demoComingSoon: true,
     featured: true,
     metric: "⚡ 85% Model Accuracy",
   },
@@ -204,8 +206,10 @@ export const PROJECTS_DATA: Project[] = [
     image: "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?q=80&w=1200&auto=format&fit=crop",
     tags: ["Machine Learning", "Python", "Data Science", "ESP8266", "SQL"],
     githubUrl: "https://github.com/vinay5647/rain-detection-system",
+    codeComingSoon: true,
+    demoComingSoon: true,
     featured: true,
-    metric: "📡 Real-Time IoT Sensors",
+    metric: "📡 IoT Hardware Project",
   },
   {
     id: "ai-unit-converter",
