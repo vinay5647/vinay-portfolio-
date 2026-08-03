@@ -9,6 +9,7 @@ import {
   Info,
   Rocket,
   Sparkles,
+  BookOpen,
 } from "lucide-react";
 import { PROJECTS_DATA, FUTURE_PROJECTS, Project } from "@/lib/data";
 import { GlassCard } from "@/components/UI/GlassCard";
@@ -87,12 +88,12 @@ export const ProjectsSection: React.FC = () => {
 
                 {/* Card Action Footer */}
                 <div className="p-6 pt-0 flex items-center justify-between border-t border-zinc-800/80 gap-2">
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3 py-2 rounded-lg bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all flex items-center gap-1.5 text-xs font-medium"
+                      className="px-2.5 py-1.5 rounded-lg bg-zinc-950 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all flex items-center gap-1 text-xs font-medium"
                       data-magnetic="true"
                     >
                       <Github className="w-3.5 h-3.5" />
@@ -104,18 +105,31 @@ export const ProjectsSection: React.FC = () => {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-3 py-2 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-300 hover:bg-sky-500/20 hover:text-white transition-all flex items-center gap-1.5 text-xs font-medium"
+                        className="px-2.5 py-1.5 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-300 hover:bg-sky-500/20 hover:text-white transition-all flex items-center gap-1 text-xs font-medium"
                         data-magnetic="true"
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
                         <span>Demo</span>
                       </a>
                     )}
+
+                    {project.paperUrl && (
+                      <a
+                        href={project.paperUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-2.5 py-1.5 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-300 hover:bg-purple-500/20 hover:text-white transition-all flex items-center gap-1 text-xs font-medium"
+                        data-magnetic="true"
+                      >
+                        <BookOpen className="w-3.5 h-3.5" />
+                        <span>Paper</span>
+                      </a>
+                    )}
                   </div>
 
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className="px-3 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all flex items-center gap-1.5 text-xs font-medium"
+                    className="px-2.5 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all flex items-center gap-1 text-xs font-medium shrink-0"
                     data-magnetic="true"
                   >
                     <Info className="w-3.5 h-3.5 text-sky-400" />
@@ -247,12 +261,12 @@ export const ProjectsSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-zinc-800 flex items-center justify-end gap-3">
+            <div className="pt-4 border-t border-zinc-800 flex flex-wrap items-center justify-end gap-3">
               <a
                 href={selectedProject.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-xl bg-zinc-800 text-white hover:bg-zinc-700 transition-colors flex items-center gap-2 text-sm font-medium"
+                className="px-4 py-2.5 rounded-xl bg-zinc-800 text-white hover:bg-zinc-700 transition-colors flex items-center gap-2 text-sm font-medium"
               >
                 <Github className="w-4 h-4" />
                 <span>View Repository</span>
@@ -263,10 +277,22 @@ export const ProjectsSection: React.FC = () => {
                   href={selectedProject.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2.5 rounded-xl bg-sky-500 text-zinc-950 font-semibold hover:bg-sky-400 transition-colors flex items-center gap-2 text-sm"
+                  className="px-4 py-2.5 rounded-xl bg-sky-500 text-zinc-950 font-semibold hover:bg-sky-400 transition-colors flex items-center gap-2 text-sm"
                 >
                   <ExternalLink className="w-4 h-4" />
                   <span>Launch Demo</span>
+                </a>
+              )}
+
+              {selectedProject.paperUrl && (
+                <a
+                  href={selectedProject.paperUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 rounded-xl bg-purple-500 text-white font-semibold hover:bg-purple-400 transition-colors flex items-center gap-2 text-sm shadow-md"
+                >
+                  <BookOpen className="w-4 h-4" />
+                  <span>Read Published Paper (PDF)</span>
                 </a>
               )}
             </div>

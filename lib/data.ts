@@ -7,6 +7,7 @@ export interface Project {
   tags: string[];
   githubUrl: string;
   liveUrl?: string;
+  paperUrl?: string;
   featured: boolean;
   isFuture?: boolean;
   metric?: string;
@@ -160,6 +161,7 @@ export const PROJECTS_DATA: Project[] = [
     tags: ["Python", "FastAPI", "AI Agents", "NLP", "React"],
     githubUrl: "https://github.com/vinay5647/people-meet-agent",
     liveUrl: "https://people-meet-agent.vercel.app",
+    paperUrl: "/People_Meet_Agent_Paper.pdf",
     featured: true,
     metric: "🤖 Autonomous AI Agent",
   },
