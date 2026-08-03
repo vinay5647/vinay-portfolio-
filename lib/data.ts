@@ -233,7 +233,7 @@ export const PROJECTS_DATA: Project[] = [
     image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1200&auto=format&fit=crop",
     tags: ["React", "FastAPI", "MongoDB", "Tailwind CSS", "Flutter"],
     githubUrl: "https://github.com/vinay5647/agri-tech",
-    demoComingSoon: true,
+    liveUrl: "https://agri-tech-lime-line.vercel.app/",
     featured: true,
     metric: "⏱️ 24h Hackathon Build",
   },
