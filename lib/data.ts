@@ -282,16 +282,15 @@ export const RESEARCH_PUBLICATIONS: ResearchPaper[] = [
 
 export const EXPERIENCES: Experience[] = [
   {
-    id: "exp-1",
-    role: "AI & Software Engineering Intern",
-    company: "Tech Innovation Lab",
-    period: "2024 - Present",
+    id: "exp-runshaw",
+    role: "Mobile App Development Intern",
+    company: "RunShaw Technologies Pvt. Ltd.",
+    period: "Jul 2025 – Aug 2025",
     description: [
-      "Designed and deployed production FastAPI backend services serving ML models with low latency.",
-      "Collaborated with cross-functional teams to integrate NLP models into web applications.",
-      "Optimized SQL & MongoDB query performance for high-throughput AI features.",
+      "Developed cross-platform mobile applications using Flutter and Dart.",
+      "Built responsive UI components and seamlessly integrated backend REST APIs.",
     ],
-    skills: ["Python", "FastAPI", "Machine Learning", "MongoDB", "REST APIs"],
+    skills: ["Flutter", "Dart", "REST APIs", "UI Components", "Mobile App Development"],
   },
   {
     id: "exp-2",
@@ -301,13 +300,21 @@ export const EXPERIENCES: Experience[] = [
     description: [
       "Led student developer team in building Agritech and Rain Detection machine learning solutions.",
       "Implemented responsive web frontends using React, Next.js, and Tailwind CSS.",
-      "Won multiple state-level ideathons with AI automation concepts.",
+      "2-Times Ideathon Winner with AI automation concepts.",
     ],
     skills: ["Python", "C++", "React", "Machine Learning", "Tailwind CSS"],
   },
 ];
 
 export const CERTIFICATIONS: Certification[] = [
+  {
+    id: "cert-runshaw",
+    title: "Mobile App Development Internship",
+    issuer: "RunShaw Technologies Pvt. Ltd.",
+    date: "Aug 2025",
+    skills: ["Flutter", "Dart", "Mobile Application Development", "REST APIs"],
+    credentialId: "RUNSHAW-FLUTTER-2025",
+  },
   {
     id: "cert-1",
     title: "Machine Learning Specialization",
@@ -326,10 +333,10 @@ export const CERTIFICATIONS: Certification[] = [
   },
   {
     id: "cert-3",
-    title: "Data Structures & Algorithms in C++ / Java",
+    title: "Data Structures & Algorithms in C++",
     issuer: "GeeksforGeeks / Coding Ninjas",
     date: "2023",
-    skills: ["Algorithms", "Problem Solving", "Graph Theory", "Dynamic Programming"],
+    skills: ["Algorithms", "Problem Solving", "C++", "Data Structures"],
     credentialId: "DSA-CPP-9912",
   },
 ];
