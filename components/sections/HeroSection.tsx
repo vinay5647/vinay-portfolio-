@@ -17,6 +17,7 @@ import {
   Users,
 } from "lucide-react";
 import { PERSONAL_INFO } from "@/lib/data";
+import { Hero3DCanvas } from "@/components/canvas/Hero3DCanvas";
 
 export const HeroSection: React.FC = () => {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -153,25 +154,25 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: 3 Concentric Spinning Orbit Rings with Vinay's Circular Photo */}
-        <div className="relative mx-auto lg:ml-auto">
-          <div className="relative w-[300px] h-[300px] md:w-[440px] md:h-[440px]">
-            {/* Outer Ring 1 */}
-            <div className="absolute inset-0 border-2 border-sky-400/40 rounded-full animate-[spin_12s_linear_infinite]" />
-            {/* Middle Ring 2 */}
-            <div className="absolute inset-3 border-2 border-purple-500/40 rounded-full animate-[spin_16s_linear_infinite_reverse]" />
-            {/* Inner Ring 3 */}
-            <div className="absolute inset-6 border-2 border-emerald-400/40 rounded-full animate-[spin_20s_linear_infinite]" />
-            
-            {/* Center Image Container */}
-            <div className="absolute inset-8 rounded-full bg-zinc-950 border border-white/10 flex items-center justify-center overflow-hidden shadow-[0_0_50px_rgba(56,189,248,0.3)]">
-              <Image
-                src={PERSONAL_INFO.profileImage}
-                alt={PERSONAL_INFO.name}
-                fill
-                className="object-cover object-top hover:scale-105 transition-transform duration-500"
-                priority
-              />
+        {/* Right Column: Interactive 3D Canvas Scene & Profile Frame */}
+        <div className="relative mx-auto lg:ml-auto flex items-center justify-center">
+          <div className="relative w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] lg:w-[480px] lg:h-[480px]">
+            {/* Interactive WebGL 3D Geometry Canvas Background */}
+            <div className="absolute inset-0 z-0">
+              <Hero3DCanvas />
+            </div>
+
+            {/* Glowing 3D Concentric Orbit Rings & Profile Avatar */}
+            <div className="absolute inset-10 sm:inset-14 rounded-full border-2 border-sky-400/50 shadow-[0_0_50px_rgba(56,189,248,0.4)] backdrop-blur-sm bg-zinc-950/60 p-1 flex items-center justify-center z-10 [transform-style:preserve-3d] hover:[transform:scale(1.05)_rotateY(10deg)] transition-transform duration-500">
+              <div className="relative w-full h-full rounded-full overflow-hidden border border-white/20 shadow-2xl">
+                <Image
+                  src={PERSONAL_INFO.profileImage}
+                  alt={PERSONAL_INFO.name}
+                  fill
+                  className="object-cover object-top hover:scale-110 transition-transform duration-700"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -55,19 +55,19 @@ export const GlassCard: React.FC<GlassCardProps> = ({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       animate={{ rotateX, rotateY }}
-      transition={{ type: "spring", stiffness: 280, damping: 22 }}
-      style={{ transformStyle: "preserve-3d" }}
+      transition={{ type: "spring", stiffness: 320, damping: 20 }}
+      style={{ transformStyle: "preserve-3d", perspective: 1000 }}
       data-cursor-text={dataCursorText}
-      className={`group relative rounded-2xl bg-zinc-900/60 backdrop-blur-xl border border-zinc-800/80 hover:border-zinc-700/80 shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all duration-300 ${className}`}
+      className={`group relative rounded-2xl bg-zinc-900/60 backdrop-blur-2xl border border-zinc-800/80 hover:border-sky-500/40 shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:shadow-[0_16px_48px_rgba(56,189,248,0.15)] transition-all duration-300 ${className}`}
     >
-      {/* Subtle Radial Cursor Spotlight */}
+      {/* 3D Dynamic Specular Light Glare */}
       <div
-        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 overflow-hidden"
         style={{
-          background: `radial-gradient(450px circle at ${spotlightPos.x}% ${spotlightPos.y}%, rgba(255,255,255,0.06), transparent 40%)`,
+          background: `radial-gradient(550px circle at ${spotlightPos.x}% ${spotlightPos.y}%, rgba(56,189,248,0.12), rgba(168,85,247,0.05) 30%, transparent 60%)`,
         }}
       />
-      <div className="relative z-20 h-full">{children}</div>
+      <div className="relative z-20 h-full [transform:translateZ(20px)]">{children}</div>
     </motion.div>
   );
 };
