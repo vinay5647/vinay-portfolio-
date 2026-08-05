@@ -335,7 +335,7 @@ export const CERTIFICATIONS: Certification[] = [
 ];
 
 export const ACHIEVEMENTS = [
-  { value: 2, suffix: "×", label: "Ideathon Winner", icon: "Trophy" },
+  { value: 2, suffix: " Times", label: "Ideathon Winner", icon: "Trophy" },
   { value: 1, suffix: "", label: "Technical Innovation Finalist", icon: "Award" },
   { value: 100, suffix: "%", label: "AI & ML Dedicated", icon: "Brain" },
   { value: 10, suffix: "+", label: "Projects Built", icon: "Rocket" },
