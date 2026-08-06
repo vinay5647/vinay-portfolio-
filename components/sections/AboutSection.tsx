@@ -111,7 +111,7 @@ export const AboutSection: React.FC = () => {
                 <div className="relative">
                   <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-indigo-400 ring-4 ring-zinc-950" />
                   <h5 className="text-sm font-bold text-white">Ideathon & Hackathon Awards</h5>
-                  <p className="text-xs text-zinc-400 mt-0.5">2× Ideathon Winner & Technical Innovation Finalist for ML Agritech & Rain Detection systems.</p>
+                  <p className="text-xs text-zinc-400 mt-0.5">2 Times Ideathon Winner & Technical Innovation Finalist for ML Agritech & Rain Detection systems.</p>
                 </div>
 
                 <div className="relative">
